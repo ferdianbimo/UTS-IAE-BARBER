@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Booking Service",
+    "version": "1.0"
+  },
+  "paths": {
+    "/bookings": {
+      "post": {
+        "tags": ["Booking-Service"],
+        "summary": "Create Booking",
+        "operationId": "PostCreate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateRequest1" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/sukses5" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateRequest1": {
+        "type": "object",
+        "required": ["id", "user_id", "haircut_id", "booking_time", "status"],
+        "properties": {
+          "id": { "type": "integer" },
+          "user_id": { "type": "integer" },
+          "haircut_id": { "type": "integer" },
+          "booking_time": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      },
+      "sukses5": {
+        "type": "object",
+        "required": ["user_id", "haircut_id", "booking_time", "updated_at", "created_at", "id"],
+        "properties": {
+          "user_id": { "type": "integer" },
+          "haircut_id": { "type": "integer" },
+          "booking_time": { "type": "string" },
+          "updated_at": { "type": "string" },
+          "created_at": { "type": "string" },
+          "id": { "type": "integer" }
+        }
+      }
+    }
+  }
+}
